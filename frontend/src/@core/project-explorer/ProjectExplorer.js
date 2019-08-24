@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
+import styled from 'styled-components'; 
 
 const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -11,32 +12,31 @@ const columns = [
   },
 ];
 
+const TableContainer = styled(Table)`
+  min-width: 80%;
+`;
+
 const data = [
   {
+    key: 0,
+    name: 'Rafit is nigga',
+    description: '.',
+  },
+  {
     key: 1,
-    name: 'John Brown',
-    description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.',
-  },
-  {
-    key: 2,
-    name: 'Jim Green',
-    description: 'My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.',
-  },
-  {
-    key: 3,
-    name: 'Joe Black',
-    description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.',
+    name: 'AWS is sick',
+    description: 'adi needs to sleep',
   },
 ];
 
 export class ProjectExplorer extends React.Component {
     render() {
         return (
-        <Table
-            columns={columns}
-            expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
-            dataSource={data}
-        />
+          <TableContainer
+              columns={columns}
+              expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
+              dataSource={data}
+          />
         );
     }
 }

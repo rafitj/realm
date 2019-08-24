@@ -91,6 +91,9 @@ export class ImageUploader extends React.Component {
     S3.listObjects({
       Bucket: "realm-files-bucket",
     }, (err, data) => {
+      if (!data || !data.Contents) {
+        return null;
+      }
       const photos = data.Contents.map((row, index) => {
         const { Key } = row;
         const url = bucketUrl + encodeURIComponent(Key);
