@@ -2,6 +2,7 @@
 var AWS = require('aws-sdk');
 var https = require('https');
 var s3 = new AWS.S3();
+var bucketUrl = 'https://realm-files-bucket.s3.amazonaws.com/';
 
 // Close dialog with the customer, reporting fulfillmentState of Failed or Fulfilled ("Thanks, your pizza will arrive in 20 minutes")
 function close(sessionAttributes, fulfillmentState, message) {
@@ -19,7 +20,7 @@ function close(sessionAttributes, fulfillmentState, message) {
 // --------------- Events -----------------------
 
  
-async function getImages() {
+async function getImages(label) {
     AWS.config.update({
       accessKeyId : 'AKIAINIMN3WMMBQOIZJA',
       secretAccessKey : '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'
@@ -35,11 +36,18 @@ async function getImages() {
         data.Contents.forEach((row, i) => {
             var params = {
               Bucket: "realm-files-bucket", 
-              Key: "row.Key",
+              Key: row.Key,
             };
+            
             try {
-              s3.getObjectTagging(params, function(err, data) {
-                  console.log(data)
+              s3.getObjectTagging(params, function(_,data) {
+                  data.TagSet.forEach((tag) => {
+                      const url = bucketUrl + encodeURIComponent(row.Key);
+                      if (tag.Value == label) {
+                         console.log(url)
+                      }
+                    }
+                 )
                 })
             }
             catch(err) {
@@ -52,11 +60,6 @@ async function getImages() {
     });
   }
   
-function fetchImg(img_tag) {
-    const data =  getImages
-    // console.log(data)
-
-}
  
  
 function dispatch(intentRequest, callback) {
@@ -64,7 +67,7 @@ function dispatch(intentRequest, callback) {
     const sessionAttributes = intentRequest.sessionAttributes;
     const slots = intentRequest.currentIntent.slots;
     const image = slots.Image
-    getImages() 
+    getImages("sunset")
     callback(close(sessionAttributes, 'Fulfilled',
     {'contentType': 'PlainText', 'content': `Okay, here's your ${image}`}));
     
