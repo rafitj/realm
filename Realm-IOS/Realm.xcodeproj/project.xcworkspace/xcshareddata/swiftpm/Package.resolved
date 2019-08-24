@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SCNLine",
+        "repositoryURL": "https://github.com/maxxfrazer/SceneKit-SCNLine",
+        "state": {
+          "branch": "master",
+          "revision": "2d9b2d5d92c603f259c3fa8ad35112dcc66da59e",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
