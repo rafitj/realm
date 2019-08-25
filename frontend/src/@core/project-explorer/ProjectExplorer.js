@@ -32,11 +32,11 @@ const data = [
 export class ProjectExplorer extends React.Component {
     render() {
         return (
-        <TableContainer
-            columns={columns}
-            expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
-            dataSource={data}
-        />
+          <TableContainer
+              columns={columns}
+              expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
+              dataSource={data}
+          />
         );
     }
 }

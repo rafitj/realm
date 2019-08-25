@@ -1,24 +1,25 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 
-const { Header, Content, Footer, Sider } = Layout;
+import { observer } from 'mobx-react';
+
+const { Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-export class Sidebar extends React.Component {
-
+@observer class Sidebar extends React.Component {
   onCollapse = collapsed => {
     const { state } = this.props;
     state.collapsed = collapsed;
   };
 
   render() {
-    const { collapsed } = this.props.state;
+    const { collapsed, openModal, projectNames } = this.props.state;
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu theme="dark" defaultSelectedKeys={['-1']} mode="inline">
             <SubMenu
               key="sub1"
               title={
@@ -28,10 +29,8 @@ export class Sidebar extends React.Component {
                 </span>
               }
             >
-              <Menu.Item key="3">Temporary</Menu.Item>
-              <Menu.Item key="4">Second thing</Menu.Item>
-              <Menu.Item key="5">Thid thing</Menu.Item>
-              <Menu.Item key="5">New Project</Menu.Item>
+              {projectNames.map((name, i) => <Menu.Item key={i} onClick={() => this.props.state.chosenProjectIndex = i}>{name}</Menu.Item>)}
+              <Menu.Item key={100} onClick={openModal}>New Project</Menu.Item>
             </SubMenu>
             <Menu.Item key="9">
               <Icon type="setting" />
@@ -41,7 +40,9 @@ export class Sidebar extends React.Component {
         </Sider>
         <Layout>
           <Content>    
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>Bill is a cat.</div>
+            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+              {this.props.children}
+            </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Realm</Footer>
         </Layout>
@@ -49,3 +50,5 @@ export class Sidebar extends React.Component {
     );
   }
 }
+
+export { Sidebar };
