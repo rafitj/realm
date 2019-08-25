@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f9c-dd-RLX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,18 +11,61 @@
         <scene sceneID="Ktq-Au-LCf">
             <objects>
                 <viewController id="f9c-dd-RLX" customClass="ViewController" customModule="Realm" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="d3S-sA-wZr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" id="6CM-AM-q75">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <gestureRecognizers/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMk-7E-sXa">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1004"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33f-TU-V2e">
+                                <rect key="frame" x="20" y="549" width="36" height="30"/>
+                                <state key="normal" title="Draw"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euh-C5-fsG">
+                                <rect key="frame" x="20" y="497" width="32" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Y1l-l5-T4c"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zs-Yy-u3T">
+                                <rect key="frame" x="20" y="442" width="59" height="30"/>
+                                <state key="normal" title="Previous"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDl-VZ-qPy">
+                                <rect key="frame" x="20" y="599" width="49" height="30"/>
+                                <state key="normal" title="Gravity"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="33f-TU-V2e" firstAttribute="top" secondItem="euh-C5-fsG" secondAttribute="bottom" constant="22" id="B8g-kv-Stj"/>
+                            <constraint firstItem="2zs-Yy-u3T" firstAttribute="top" secondItem="6D8-Pf-Tdp" secondAttribute="top" constant="442" id="BHt-ex-mcg"/>
+                            <constraint firstItem="33f-TU-V2e" firstAttribute="leading" secondItem="6D8-Pf-Tdp" secondAttribute="leading" constant="20" id="BdR-rO-btg"/>
+                            <constraint firstItem="hMk-7E-sXa" firstAttribute="leading" secondItem="6D8-Pf-Tdp" secondAttribute="leading" id="F21-OM-yrN"/>
+                            <constraint firstItem="mDl-VZ-qPy" firstAttribute="leading" secondItem="6D8-Pf-Tdp" secondAttribute="leading" constant="20" id="IK4-FT-cDR"/>
+                            <constraint firstItem="hMk-7E-sXa" firstAttribute="top" secondItem="6D8-Pf-Tdp" secondAttribute="top" id="Ypx-mc-lVQ"/>
+                            <constraint firstItem="2zs-Yy-u3T" firstAttribute="leading" secondItem="6D8-Pf-Tdp" secondAttribute="leading" constant="20" id="jfw-Gy-rNf"/>
+                            <constraint firstItem="euh-C5-fsG" firstAttribute="leading" secondItem="6D8-Pf-Tdp" secondAttribute="leading" constant="20" id="pAq-r2-pgh"/>
+                            <constraint firstItem="6D8-Pf-Tdp" firstAttribute="bottom" secondItem="hMk-7E-sXa" secondAttribute="bottom" id="sxL-A9-gO7"/>
+                            <constraint firstItem="euh-C5-fsG" firstAttribute="top" secondItem="2zs-Yy-u3T" secondAttribute="bottom" constant="25" id="sy1-9C-bST"/>
+                            <constraint firstItem="6D8-Pf-Tdp" firstAttribute="trailing" secondItem="hMk-7E-sXa" secondAttribute="trailing" id="t1r-zp-4af"/>
+                            <constraint firstItem="mDl-VZ-qPy" firstAttribute="top" secondItem="33f-TU-V2e" secondAttribute="bottom" constant="20" id="xbY-4w-FHf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6D8-Pf-Tdp"/>
+                    </view>
                     <connections>
-                        <outlet property="arView" destination="d3S-sA-wZr" id="fLn-jv-KBa"/>
+                        <outlet property="arView" destination="hMk-7E-sXa" id="2Zu-fd-Whr"/>
+                        <outlet property="draw" destination="33f-TU-V2e" id="jru-1y-Lu6"/>
+                        <outlet property="gravity" destination="mDl-VZ-qPy" id="ANm-a5-OqN"/>
+                        <outlet property="nextButton" destination="euh-C5-fsG" id="3vE-hA-aMI"/>
+                        <outlet property="previous" destination="2zs-Yy-u3T" id="06N-6l-Len"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO4-Mx-0LZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="127"/>
+            <point key="canvasLocation" x="134.84626647144947" y="126.56249999999999"/>
         </scene>
     </scenes>
 </document>

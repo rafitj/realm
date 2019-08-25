@@ -19,8 +19,6 @@ class FreeFormSlide: RealmSlide {
 
     
     func onMount(view: ARSCNView) {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tap);
     }
     
     func onAnchorsUpdate(view: ARSCNView, body: SCNVector3, lhand: SCNVector3?, rhand: SCNVector3?) {
@@ -30,14 +28,18 @@ class FreeFormSlide: RealmSlide {
     }
     
     func onUnmount(view: ARSCNView) {
-        // TODO: remove gesture listener
     }
     
-    @objc func handleTap() {
+    func toggleDraw() {
         draw = !draw
         drawFresh = true
+    }
     
-        changeGravity(on: !draw)
+    private var gravity = false
+    
+    func toggleGravity() {
+        gravity = !gravity;
+        changeGravity(on: gravity)
     }
     
     func changeGravity(on: Bool) {
@@ -70,6 +72,11 @@ class FreeFormSlide: RealmSlide {
         let node = SCNNode(geometry: geo)
         node.position = v
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
+        
+        let body = SCNPhysicsBody(type: .static, shape: nil)
+        body.mass = 1.0
+        body.isAffectedByGravity = false
+        node.physicsBody = body
     
         let current = drawings[drawIndex]
         current.addChildNode(node)
