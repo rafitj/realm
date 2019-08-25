@@ -21,6 +21,10 @@ const TitleContainer = styled(Title)`
   diplay: block;
 `;  
 
+const ImagesContainer = styled(ImageUploader)`
+  width: 70%;
+`;
+
 @observer
 class App extends React.Component {
   state = new SidebarState();
@@ -55,7 +59,7 @@ class App extends React.Component {
         <Container>
           <TitleContainer level={2}>Realm</TitleContainer>
           <TitleContainer level={4}>Photos for Project {projectNames[chosenProjectIndex]}</TitleContainer>
-          <ImageUploader/>
+          <ImagesContainer />
         </Container>
       </Sidebar>
     );

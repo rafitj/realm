@@ -28,6 +28,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "file-base64": "^1.0.0",
     "file-loader": "3.0.1",
     "fs-extra": "7.0.1",
     "html-webpack-plugin": "4.0.0-beta.5",
@@ -53,6 +54,7 @@
     "react-dom": "^16.9.0",
     "react-dropzone": "^10.1.7",
     "react-dropzone-component": "^3.2.0",
+    "reqwest": "^2.0.5",
     "resolve": "1.12.0",
     "resolve-url-loader": "3.1.0",
     "sass-loader": "7.2.0",
@@ -137,8 +139,13 @@
   },
   "babel": {
     "plugins": [
-      ["@babel/plugin-proposal-decorators", { "legacy": true }]
-    ],  
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ],
     "presets": [
       "react-app"
     ]
