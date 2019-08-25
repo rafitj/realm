@@ -19,8 +19,8 @@ const props = {
     onSuccess
   }) {
     AWS.config.update({
-      accessKeyId : 'AKIAINIMN3WMMBQOIZJA',
-      secretAccessKey : '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'
+      accessKeyId : 'AKIA3CQCMUSFTAQZTN7Q',
+      secretAccessKey : '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'
     });
 
     const S3 = new AWS.S3();
@@ -81,8 +81,8 @@ export class ImageUploader extends React.Component {
 
   async fetchImages() {
     AWS.config.update({
-      accessKeyId : 'AKIAINIMN3WMMBQOIZJA',
-      secretAccessKey : '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'
+      accessKeyId : 'AKIA3CQCMUSFTAQZTN7Q',
+      secretAccessKey : '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'
     });
     
     var bucketUrl = 'https://realm-files-bucket.s3.amazonaws.com/';
@@ -97,6 +97,8 @@ export class ImageUploader extends React.Component {
       const photos = data.Contents.map((row, index) => {
         const { Key } = row;
         const url = bucketUrl + encodeURIComponent(Key);
+
+        console.log(url);
 
         return {
           uid: index,

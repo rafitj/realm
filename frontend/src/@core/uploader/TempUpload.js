@@ -21,8 +21,8 @@ export class TempUpload extends React.Component {
     });
 
     AWS.config.update({
-        accessKeyId : 'AKIAINIMN3WMMBQOIZJA',
-        secretAccessKey : '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'
+        accessKeyId : 'AKIA3CQCMUSFTAQZTN7Q',
+        secretAccessKey : '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'
     });
   
     const lambda = new AWS.Lambda({ region: "us-east-1" });
