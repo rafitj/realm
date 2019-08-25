@@ -23,9 +23,9 @@ class FreeFormSlide: RealmSlide {
         view.addGestureRecognizer(tap);
     }
     
-    func onAnchorsUpdate(view: ARSCNView, body: SCNVector3, lhand: SCNVector3, rhand: SCNVector3) {
+    func onAnchorsUpdate(view: ARSCNView, body: SCNVector3, lhand: SCNVector3?, rhand: SCNVector3?) {
         if draw {
-            addToDraw(v: lhand, arView: view)
+            addToDraw(v: lhand!, arView: view)
         }
     }
     

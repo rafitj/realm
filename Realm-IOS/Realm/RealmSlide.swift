@@ -13,7 +13,7 @@ import ARKit
 protocol RealmSlide {
     
     func onMount(view: ARSCNView)
-    func onAnchorsUpdate(view: ARSCNView, body: SCNVector3, lhand: SCNVector3, rhand: SCNVector3)
+    func onAnchorsUpdate(view: ARSCNView, body: SCNVector3, lhand: SCNVector3?, rhand: SCNVector3?)
     func onUnmount(view: ARSCNView)
     
 }
