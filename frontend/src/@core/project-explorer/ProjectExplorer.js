@@ -19,7 +19,7 @@ const TableContainer = styled(Table)`
 const data = [
   {
     key: 0,
-    name: 'Rafit is nigga',
+    name: 'Rafit is here',
     description: '.',
   },
   {
