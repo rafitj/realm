@@ -1,2 +1,2 @@
 # realm
-:egg:
+:milky_way:
