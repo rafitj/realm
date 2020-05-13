@@ -21,10 +21,7 @@ function close(sessionAttributes, fulfillmentState, message) {
 
  
 async function getImages(label) {
-    AWS.config.update({
-      accessKeyId : 'AKIAINIMN3WMMBQOIZJA',
-      secretAccessKey : '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'
-    });
+    AWS.config.update();
     
     var bucketUrl = 'https://realm-files-bucket.s3.amazonaws.com/';
 
